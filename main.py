@@ -12,6 +12,7 @@ import scanners.head_scan
 import scanners.whois_scan
 import scanners.lfi_scan
 import scanners.slqli_scan
+import scanners.tech_detect
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -70,33 +71,41 @@ class Main():
         Modules.clear()
         Modules.banner()
 
-        print('[LOTUS] Dumping DNS Records')
-        # scanners.dns_scan.Dump(domain)
+        try:
+            scanners.head_scan.WebService(domain)
+            scanners.tech_detect.Detect(domain)
 
-        print('[LOTUS] Dumping Digital Certificates')
-        # scanners.cert_dig.Dump(domain)
+            print('\n[LOTUS] Dumping DNS Records')
+            scanners.dns_scan.Dump(domain)
 
-        print('[LOTUS] Dumping Domain Headers')
-        # scanners.head_scan.Dump(domain)
+            print('[LOTUS] Dumping Digital Certificates')
+            # scanners.cert_dig.Dump(domain)
 
-        print('[LOTUS] Dumping Domain Information')
-        # scanners.whois_scan.Dump(domain)
+            print('[LOTUS] Dumping Domain Headers')
+            scanners.head_scan.Dump(domain)
 
-        print('[LOTUS] Scanning for Open Ports and their Services')
-        # scanners.port_scan.Scan(domain)
+            print('[LOTUS] Dumping Domain Information')
+            scanners.whois_scan.Dump(domain)
 
-        print('[LOTUS] Bruteforcing Subdomains')
-        print('[LOTUS] Scanning for Subdomain Takeover')
-        # scanners.sub_scan.Scan(domain)
+            print('[LOTUS] Scanning for Open Ports and their Services')
+            scanners.port_scan.Scan(domain)
 
-        print('[LOTUS] Bruteforcing Directories')
-        # scanners.dir_scan.Scan(domain)
+            print('[LOTUS] Bruteforcing Subdomains')
+            print('[LOTUS] Scanning for Subdomain Takeover')
+            scanners.sub_scan.Scan(domain)
 
-        print('[LOTUS] Scanning for LFI')
-        # scanners.lfi_scan.Scan(domain)
+            print('[LOTUS] Bruteforcing Directories')
+            scanners.dir_scan.Scan(domain)
 
-        print("[LOTUS] Scanning for SQLi")
-        scanners.slqli_scan.Scan(domain)
+            print('[LOTUS] Scanning for LFI')
+            scanners.lfi_scan.Scan(domain)
+
+            print("[LOTUS] Scanning for SQLi")
+            scanners.slqli_scan.Scan(domain)
+
+        except KeyboardInterrupt:
+            print("\n[LOTUS] Exiting...")
+            sys.exit()
 
         if os.name == 'nt':
             os.system('explorer .\scans')
