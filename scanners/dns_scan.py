@@ -32,13 +32,3 @@ def Dump(domain):
                 f.write('{:<15} {:<15}\n'.format(domain, str(rdata.target)))
         except dns.resolver.NoAnswer:
             pass
-
-        f.write('\n{:<15} {:<15} \n'.format('Domain', 'DNS Zone'))
-        f.write('='*45+'\n')
-
-        try:
-            axfr = dns.query.xfr(str(resolver.nameservers[0]), domain)
-            for rdata in axfr:
-                f.write('{:<15} {:<15}\n'.format(domain, rdata))
-        except dns.exception.FormError:
-            pass
