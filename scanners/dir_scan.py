@@ -10,12 +10,12 @@ def Scan(domain):
     with open("./wordlists/dir_list.txt", "r") as f:
         dirs = f.read().splitlines()
 
-    for dir in dirs:
+    for directory in dir:
         try:
-            url = f"https://{domain}/{dir}"
+            url = f"https://{domain}/{dirs}"
             response = requests.get(url)
             if response.status_code != 404:
                 with open(f"./scans/DIRECTORIES/{domain}.txt", "a") as f:
-                    f.write("{:<15} {:<15} {:<15} \n".format(domain, dir, str(response.status_code)))
+                    f.write("{:<15} {:<15} {:<15} \n".format(domain, directory, str(response.status_code)))
         except requests.exceptions.ConnectionError as e:
             continue
