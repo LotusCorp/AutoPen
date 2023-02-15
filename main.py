@@ -11,8 +11,8 @@ import scanners.cert_dig
 import scanners.head_scan
 import scanners.whois_scan
 import scanners.lfi_scan
-import scanners.sqli_scan
 import scanners.tech_detect
+import scanners.sqli_scan
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -101,7 +101,7 @@ class Main():
             scanners.lfi_scan.Scan(domain)
 
             print("[LOTUS] Scanning for SQLi")
-            scanners.slqli_scan.Scan(domain)
+            scanners.sqli_scan.Scan(domain)
 
         except KeyboardInterrupt:
             print("\n[LOTUS] Exiting...")
