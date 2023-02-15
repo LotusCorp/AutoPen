@@ -11,6 +11,7 @@ import scanners.cert_dig
 import scanners.head_scan
 import scanners.whois_scan
 import scanners.lfi_scan
+import scanners.slqli_scan
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -30,21 +31,21 @@ class Variables:
 
 class Modules:
 
-    def __clear__():
+    def clear():
         if os.name == 'nt':
             os.system('cls')
         else:
             os.system('clear')
     
-    def __detect__():
+    def detect():
         if os.name == 'nt':
             return 'Windows'
         else:
             return 'Linux'
 
-    def __banner__():
+    def banner():
 
-        __system__ = Modules.__detect__()
+        __system__ = Modules.detect()
 
         print(f'''
                 .?B5^ 
@@ -66,33 +67,36 @@ class Modules:
 class Main():
 
     def main(domain):
-        Modules.__clear__()
-        Modules.__banner__()
+        Modules.clear()
+        Modules.banner()
 
         print('[LOTUS] Dumping DNS Records')
-        scanners.dns_scan.Dump(domain)
+        # scanners.dns_scan.Dump(domain)
 
         print('[LOTUS] Dumping Digital Certificates')
-        scanners.cert_dig.Dump(domain)
+        # scanners.cert_dig.Dump(domain)
 
         print('[LOTUS] Dumping Domain Headers')
-        scanners.head_scan.Dump(domain)
+        # scanners.head_scan.Dump(domain)
 
         print('[LOTUS] Dumping Domain Information')
-        scanners.whois_scan.Dump(domain)
+        # scanners.whois_scan.Dump(domain)
 
         print('[LOTUS] Scanning for Open Ports and their Services')
-        scanners.port_scan.Scan(domain)
+        # scanners.port_scan.Scan(domain)
 
         print('[LOTUS] Bruteforcing Subdomains')
         print('[LOTUS] Scanning for Subdomain Takeover')
-        scanners.sub_scan.Scan(domain)
+        # scanners.sub_scan.Scan(domain)
 
         print('[LOTUS] Bruteforcing Directories')
-        scanners.dir_scan.Scan(domain)
+        # scanners.dir_scan.Scan(domain)
 
         print('[LOTUS] Scanning for LFI')
-        scanners.lfi_scan.Scan(domain)
+        # scanners.lfi_scan.Scan(domain)
+
+        print("[LOTUS] Scanning for SQLi")
+        scanners.slqli_scan.Scan(domain)
 
         if os.name == 'nt':
             os.system('explorer .\scans')
@@ -103,7 +107,7 @@ if __name__ == '__main__':
     if args.domain:
         Main.main(args.domain)
     else:
-        Modules.__clear__()
-        Modules.__banner__()
+        Modules.clear()
+        Modules.banner()
         print('Syntax:  python main.py <domain>')
         print('Example: python main.py domain.com')
