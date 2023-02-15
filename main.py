@@ -73,7 +73,7 @@ class Main():
         scanners.dns_scan.Dump(domain)
 
         print('[LOTUS] Dumping Digital Certificates')
-        # scanners.cert_dig.Dump(domain)
+        scanners.cert_dig.Dump(domain)
 
         print('[LOTUS] Dumping Domain Headers')
         scanners.head_scan.Dump(domain)
