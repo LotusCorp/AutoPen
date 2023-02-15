@@ -33,6 +33,7 @@ Utilizing state-of-the-art technology and advanced algorithms, this program is c
 | Directory Bruteforce | <ul><li> - [x] </li></ul> |
 | Whois Scan           | <ul><li> - [x] </li></ul> |
 | Dig Certificates     | <ul><li> - [x] </li></ul> |
+| Scan for LFI         | <ul><li> - [x] </li></ul> |
 
 </div>
 
