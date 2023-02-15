@@ -11,7 +11,7 @@ import scanners.cert_dig
 import scanners.head_scan
 import scanners.whois_scan
 import scanners.lfi_scan
-import scanners.slqli_scan
+import scanners.sqli_scan
 import scanners.tech_detect
 
 parser = argparse.ArgumentParser()
