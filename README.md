@@ -34,6 +34,7 @@ Utilizing state-of-the-art technology and advanced algorithms, this program is c
 | Whois Scan           | <ul><li> - [x] </li></ul> |
 | Dig Certificates     | <ul><li> - [x] </li></ul> |
 | Scan for LFI         | <ul><li> - [x] </li></ul> |
+| Scan for SQLi        | <ul><li> - [x] </li></ul> |
 
 </div>
 
