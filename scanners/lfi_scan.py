@@ -3,10 +3,11 @@ import requests
 
 def Scan(domain):
 
-    f.write('{:<15} {:<15} {:<30} \n'.format('Domain', 'Payload', 'LFI'))
-    f.write('='*66+'\n')
+    with open(f"./scans/LFI/{domain}.txt", "w") as f:
+        f.write('{:<15} {:<15} {:<30} \n'.format('Domain', 'Payload', 'LFI'))
+        f.write('='*66+'\n')
 
-    with open("./payloads/lfi.txt", "r") as f:
+    with open("payloads/lfi.txt", "r") as f:
         for line in f:
             payload = line.strip()
             url = domain + payload
