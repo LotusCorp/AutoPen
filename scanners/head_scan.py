@@ -9,3 +9,9 @@ def Dump(domain):
     with open(f"./scans/HEADERS/{domain}.txt", "w") as f:
         for key, value in header_info.items():
             f.write(f"{key}: {value}\n")
+
+def WebService(domain):
+
+    response = requests.head(f"https://{domain}")
+    header_info = response.headers.get('Server')
+    print(f"[LOTUS] WebService Detected: {header_info}")
