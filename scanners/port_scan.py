@@ -2,6 +2,7 @@ import socket
 import sys
 
 def Scan(domain):
+    
     try:
         ip_address = socket.gethostbyname(domain)
     except socket.gaierror:
