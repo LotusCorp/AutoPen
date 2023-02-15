@@ -1,4 +1,5 @@
 import requests
+
 from time import sleep
 
 def Scan(domain):
