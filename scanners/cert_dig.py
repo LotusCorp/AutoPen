@@ -9,4 +9,4 @@ def Dump(domain):
             cert = sslsock.getpeercert(True)
 
     with open(f'./scans/CERTIFICATES/{domain}.txt', 'w') as f:
-        f.write(cert, encode='utf8')
+        f.write(cert)
