@@ -89,6 +89,11 @@ class Main():
         print("[LOTUS] Bruteforcing Directories")
         scanners.dir_scan.Scan(domain)
         
+        if os.name == 'nt':
+            os.system('explorer .\scans')
+        else:
+            pass
+        
 if __name__ == '__main__':
     if args.domain:
         Main.main(args.domain)
