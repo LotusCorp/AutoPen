@@ -32,9 +32,11 @@ Utilizing state-of-the-art technology and advanced algorithms, this program is c
 | Subdomain Bruteforce | <ul><li> - [x] </li></ul> |
 | Directory Bruteforce | <ul><li> - [x] </li></ul> |
 | Whois Scan           | <ul><li> - [x] </li></ul> |
-| Dig Certificates     | <ul><li> - [x] </li></ul> |
+| Dig Certificates     | <ul><li> - [ ] </li></ul> |
 | Scan for LFI         | <ul><li> - [x] </li></ul> |
 | Scan for SQLi        | <ul><li> - [x] </li></ul> |
+| Detect Webservice    | <ul><li> - [x] </li></ul> |
+| Detect Framework     | <ul><li> - [x] </li></ul> |
 
 </div>
 
