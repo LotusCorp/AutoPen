@@ -13,7 +13,7 @@ def Scan(domain):
             for line in f:
                 payload = line.strip()
                 response = requests.get(f"https://{domain}{param}{payload}")
-                if "Warning: include()" in response.text:
+                if 'sql syntax' in response.text.lower() or 'mysql_fetch' in response.text.lower():
                     with open(f"./scans/SQLI/{domain}.txt", "a") as f:
                         f.write("{:<15} {:<45} {:<15} \n".format(domain, payload, "True"))
                 else:
