@@ -14,6 +14,7 @@ import scanners.lfi_scan
 import scanners.tech_detect
 import scanners.sqli_scan
 import scanners.idor_scan
+import scanners.xss_scan
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -101,12 +102,15 @@ class Main():
             print('[LOTUS] Scanning for LFI')
             scanners.lfi_scan.Scan(domain)
 
-            print('[LOTUS] Scanning for IDOR')
-            scanners.idor_scan.Scan(domain)
+            print("[LOTUS] Scanning for XSS")
+            scanners.xss_scan.Scan(domain)
 
             print("[LOTUS] Scanning for SQLi")
             scanners.sqli_scan.Scan(domain)
 
+            print('[LOTUS] Scanning for IDOR')
+            scanners.idor_scan.Scan(domain)
+            
         except KeyboardInterrupt:
             print("\n[LOTUS] Exiting...")
             sys.exit()
