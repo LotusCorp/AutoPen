@@ -11,14 +11,9 @@ def Scan(domain):
         for line in f:
             payload = line.strip()
             response = requests.get(f"https://{domain}{param}{payload}")
-            if "root:" in response.content.decode():
-                with open(f"./scans/LFI/{domain}.txt", "a") as f:
-                    f.write("{:<15} {:<45} {:<15} \n".format(domain, payload, "True"))
-            if "on line" in response.content.decode():
-                with open(f"./scans/LFI/{domain}.txt", "a") as f:
-                    f.write("{:<15} {:<45} {:<15} \n".format(domain, payload, "True"))
-            if "Warning" in response.content.decode():
-                with open(f"./scans/LFI/{domain}.txt", "a") as f:
-                    f.write("{:<15} {:<45} {:<15} \n".format(domain, payload, "True"))
-            else:
-                pass
+            if response.status_code != 404:
+                if "root:" or "on line" or "Warning" in response.content.decode():
+                    with open(f"./scans/LFI/{domain}.txt", "a") as f:
+                        f.write("{:<15} {:<45} {:<15} \n".format(domain, payload, "True"))
+                else:
+                    pass
