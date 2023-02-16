@@ -11,7 +11,13 @@ def Scan(domain):
         for line in f:
             payload = line.strip()
             response = requests.get(f"https://{domain}{param}{payload}")
-            if "Warning: include()" in response.text:
+            if "root:" in response.content.decode():
+                with open(f"./scans/LFI/{domain}.txt", "a") as f:
+                    f.write("{:<15} {:<45} {:<15} \n".format(domain, payload, "True"))
+            if "on line" in response.content.decode():
+                with open(f"./scans/LFI/{domain}.txt", "a") as f:
+                    f.write("{:<15} {:<45} {:<15} \n".format(domain, payload, "True"))
+            if "Warning" in response.content.decode():
                 with open(f"./scans/LFI/{domain}.txt", "a") as f:
                     f.write("{:<15} {:<45} {:<15} \n".format(domain, payload, "True"))
             else:
