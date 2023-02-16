@@ -8,13 +8,14 @@ def Scan(domain):
         f.write("="*45+"\n")
 
     with open("./wordlists/dir_list.txt", "r") as f:
-        dirs = f.read().splitlines()
 
-    for directory in dirs:
-        try:
-            response = requests.get(f"https://{domain}/{dirs}")
-            if response.status_code != 404:
-                with open(f"./scans/DIRECTORIES/{domain}.txt", "a") as f:
-                    f.write("{:<15} {:<15} {:<15} \n".format(domain, directory, str(response.status_code)))
-        except requests.exceptions.ConnectionError as e:
-            continue
+        for line in f:
+            try:
+                stripped = line.strip()
+                print(f"https://{domain}/{stripped}")
+                response = requests.get(f"https://{domain}/{stripped}")
+                if response.status_code != 404:
+                    with open(f"./scans/DIRECTORIES/{domain}.txt", "a") as f:
+                        f.write("{:<15} {:<15} {:<15} \n".format(domain, stripped, str(response.status_code)))
+            except requests.exceptions.ConnectionError as e:
+                continue
