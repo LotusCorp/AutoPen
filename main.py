@@ -13,6 +13,7 @@ import scanners.whois_scan
 import scanners.lfi_scan
 import scanners.tech_detect
 import scanners.sqli_scan
+import scanners.idor_scan
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -79,7 +80,7 @@ class Main():
             scanners.dns_scan.Dump(domain)
 
             print('[LOTUS] Dumping Digital Certificates')
-            # scanners.cert_dig.Dump(domain)
+            scanners.cert_dig.Dump(domain)
 
             print('[LOTUS] Dumping Domain Headers')
             scanners.head_scan.Dump(domain)
@@ -99,6 +100,9 @@ class Main():
 
             print('[LOTUS] Scanning for LFI')
             scanners.lfi_scan.Scan(domain)
+
+            print('[LOTUS] Scanning for IDOR')
+            scanners.idor_scan.Scan(domain)
 
             print("[LOTUS] Scanning for SQLi")
             scanners.sqli_scan.Scan(domain)
