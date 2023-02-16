@@ -1,7 +1,7 @@
 import socket
 import sys
 
-def Scan(domain):
+def Scan(domain): 
     
     try:
         ip_address = socket.gethostbyname(domain)
