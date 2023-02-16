@@ -8,7 +8,7 @@
 |:----------------|:-------------------|:------------------------|
 |   AutoPen      |     Auto Scan     |   13th February 2023   |
 
-[Description](#Description) - [Futures](#Futures) - [Installation](#Instalatiin) - [Contribute](#Contribute)
+[Description](#Description) - [Futures](#Futures) - [Installation](#Installation) - [How To Use](#howto) - [Contribute](#Contribute)
 
 </div>
 
@@ -35,6 +35,7 @@ Utilizing state-of-the-art technology and advanced algorithms, this program is c
 | Dig Certificates     | <ul><li> - [ ] </li></ul> |
 | Scan for LFI         | <ul><li> - [x] </li></ul> |
 | Scan for SQLi        | <ul><li> - [x] </li></ul> |
+| Scan for IDOR        | <ul><li> - [x] </li></ul> |
 | Detect Webservice    | <ul><li> - [x] </li></ul> |
 | Detect Framework     | <ul><li> - [x] </li></ul> |
 
@@ -60,6 +61,17 @@ Utilizing state-of-the-art technology and advanced algorithms, this program is c
   ```
   
 </div>
+
+<center> <h1 id="Futures" align="center" >How to Use</h1> </center>
+
+Parameters
+```
+/parameter/?param=
+?param=
+```
+
+The script takes input in the form of a domain, where the parameters can be specified as either /parameter/?param= or ?param=. The resulting URL is constructed by appending the parameter to the domain, such as domain.com/parameter/?param= or domain.com?param=. The payloads are predefined in lists and will be automatically added to the constructed URLs for testing.
+
 <center> <h1 id="Contribute" align="center" >Contribute</h1> </center>
 
 <div align="center">
