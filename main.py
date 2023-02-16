@@ -1,8 +1,7 @@
 import os
 import sys
 import argparse
-import threading
-
+import requests
 import scanners.dns_scan
 import scanners.port_scan
 import scanners.sub_scan
@@ -29,7 +28,7 @@ class Variables:
     global __creators__, __version__, __github__
 
     __creators__ = 'LotusCorp'
-    __version__  = '1.0.1'
+    __version__  = '1.0.3'
     __github__   = 'github.com/LotusCorp'
 
 class Modules:
@@ -66,6 +65,12 @@ class Modules:
       .?B@@@@@@@@@@@@@@@@@@@#J: 
         .~JG#@@@@@@@@@@@&BY!. 
         ''')
+
+        r = requests.get("https://raw.githubusercontent.com/LotusCorp/AutoPen/main/__version__?token=GHSAT0AAAAAAB6YWIFWQ3CIKCD2Q5GPALGMY7OHVIQ")
+        if __version__ in r.text:
+            pass
+        else:
+            print("[LOTUS] Software is Outdated. Please Update it from github.com/LotusCorp/AutoPen\n")
 
 class Main():
 
@@ -126,5 +131,5 @@ if __name__ == '__main__':
     else:
         Modules.clear()
         Modules.banner()
-        print('Syntax:  python main.py <domain>')
-        print('Example: python main.py domain.com') 
+        print('[LOTUS] Syntax:  python main.py <domain>')
+        print('[LOTUS] Example: python main.py domain.com\n')
