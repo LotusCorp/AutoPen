@@ -14,7 +14,7 @@ def Scan(domain):
         try:
             url = f"https://{domain}/{dirs}"
             response = requests.get(url)
-            if response.status_code != 404:
+            if response.status_code == 200:
                 with open(f"./scans/DIRECTORIES/{domain}.txt", "a") as f:
                     f.write("{:<15} {:<15} {:<15} \n".format(domain, directory, str(response.status_code)))
         except requests.exceptions.ConnectionError as e:
