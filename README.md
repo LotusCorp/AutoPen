@@ -8,7 +8,7 @@
 |:----------------|:-------------------|:------------------------|
 |   AutoPen      |     Auto Scan     |   13th February 2023   |
 
-[Description](#Description) - [Futures](#Futures) - [Installation](#Installation) - [How To Use](#howto) - [Contribute](#Contribute)
+[Description](#Description) - [Futures](#Futures) - [Installation](#Installation) - [How To Use](#Howto) - [Contribute](#Contribute)
 
 </div>
 
