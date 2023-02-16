@@ -71,7 +71,7 @@ Parameters
 ?param=
 ```
 
-The script takes input in the form of a domain, where the parameters can be specified as either /parameter/?param= or ?param=. The resulting URL is constructed by appending the parameter to the domain, such as domain.com/parameter/?param= or domain.com?param=. The payloads are predefined in lists and will be automatically added to the constructed URLs for testing.
+The script takes input in the form of a domain, where the parameters can be specified as either `/parameter/?param=` or `?param=`. The resulting URL is constructed by appending the parameter to the domain, such as `domain.com/parameter/?param=` or `domain.com?param=`. The payloads are predefined in lists and will be automatically added to the constructed URLs for testing.
 
 <center> <h1 id="Contribute" align="center" >Contribute</h1> </center>
 
