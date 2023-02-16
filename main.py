@@ -6,7 +6,6 @@ import scanners.dns_scan
 import scanners.port_scan
 import scanners.sub_scan
 import scanners.dir_scan
-import scanners.cert_dig
 import scanners.head_scan
 import scanners.whois_scan
 import scanners.lfi_scan
@@ -85,14 +84,11 @@ class Main():
             print('\n[LOTUS] Dumping DNS Records')
             scanners.dns_scan.Dump(domain)
 
-            print('[LOTUS] Dumping Digital Certificates')
-            scanners.cert_dig.Dump(domain)
-
             print('[LOTUS] Dumping Domain Headers')
             scanners.head_scan.Dump(domain)
 
             print('[LOTUS] Dumping Domain Information')
-            scanners.whois_scan.Dump(domain)
+            scanners.whois_scan.Dump(domain) # remove if he don't work
 
             print('[LOTUS] Scanning for Open Ports and their Services')
             scanners.port_scan.Scan(domain)
