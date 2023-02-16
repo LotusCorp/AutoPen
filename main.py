@@ -127,4 +127,4 @@ if __name__ == '__main__':
         Modules.clear()
         Modules.banner()
         print('Syntax:  python main.py <domain>')
-        print('Example: python main.py domain.com')
+        print('Example: python main.py domain.com') 
