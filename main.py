@@ -6,6 +6,7 @@ import scanners.dns_scan
 import scanners.port_scan
 import scanners.sub_scan
 import scanners.dir_scan
+import scanners.cert_dig
 import scanners.head_scan
 import scanners.whois_scan
 import scanners.lfi_scan
@@ -13,6 +14,8 @@ import scanners.tech_detect
 import scanners.sqli_scan
 import scanners.idor_scan
 import scanners.xss_scan
+
+from colorama import Fore
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -65,11 +68,12 @@ class Modules:
         .~JG#@@@@@@@@@@@&BY!. 
         ''')
 
-        r = requests.get("https://raw.githubusercontent.com/LotusCorp/AutoPen/main/__version__?token=GHSAT0AAAAAAB6YWIFWQ3CIKCD2Q5GPALGMY7OHVIQ")
+        r = requests.get("https://pastebin.com/raw/xRNXU9xJ")
         if __version__ in r.text:
             pass
         else:
-            print("[LOTUS] Software is Outdated. Please Update it from github.com/LotusCorp/AutoPen\n")
+            print(f"[LOTUS] Software is {Fore.RED}Outdated{Fore.RESET}. Please Update it from github.com/LotusCorp/AutoPen\n")
+            sys.exit()
 
 class Main():
 
@@ -84,11 +88,14 @@ class Main():
             print('\n[LOTUS] Dumping DNS Records')
             scanners.dns_scan.Dump(domain)
 
+            print('[LOTUS] Dumping Digital Certificates')
+            scanners.cert_dig.Dump(domain)
+
             print('[LOTUS] Dumping Domain Headers')
             scanners.head_scan.Dump(domain)
 
             print('[LOTUS] Dumping Domain Information')
-            scanners.whois_scan.Dump(domain) # remove if he don't work
+            scanners.whois_scan.Dump(domain)
 
             print('[LOTUS] Scanning for Open Ports and their Services')
             scanners.port_scan.Scan(domain)
