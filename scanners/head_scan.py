@@ -8,7 +8,7 @@ def Dump(domain):
 
     with open(f"./scans/HEADERS/{domain}.txt", "w") as f:
         for key, value in header_info.items():
-            f.write(f"{key}: {value}\n")
+            f.write(f"{key}: {value}\n") 
 
 def WebService(domain):
 
