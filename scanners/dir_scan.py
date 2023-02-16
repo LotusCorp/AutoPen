@@ -10,7 +10,7 @@ def Scan(domain):
     with open("./wordlists/dir_list.txt", "r") as f:
         dirs = f.read().splitlines()
 
-    for directory in dir:
+    for directory in dirs:
         try:
             url = f"https://{domain}/{dirs}"
             response = requests.get(url)
