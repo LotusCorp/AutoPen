@@ -12,7 +12,6 @@ def Scan(domain):
         for line in f:
             try:
                 stripped = line.strip()
-                print(f"https://{domain}/{stripped}")
                 response = requests.get(f"https://{domain}/{stripped}")
                 if response.status_code != 404:
                     with open(f"./scans/DIRECTORIES/{domain}.txt", "a") as f:
