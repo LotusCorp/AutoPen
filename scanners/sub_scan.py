@@ -12,16 +12,15 @@ def Scan(domain):
 
     for subdomain in subdomains:
         try:
-            url = f"https://{subdomain}.{domain}"
-            response = requests.get(url)
+            response = requests.get(f"https://{subdomain}.{domain}")
 
             if response.status_code != 404:
                 if "CNAME" in response.text:
                     with open(f"./scans/SUBDOMAINS/{domain}.txt", "a") as f:
-                        f.write("{:<15} {:<15} {:<15} {:<15} \n".format(url, subdomain, str(response.status_code), "True"))
+                        f.write("{:<15} {:<15} {:<15} {:<15} \n".format(domain, subdomain, str(response.status_code), "True"))
                 else:
                     with open(f"./scans/SUBDOMAINS/{domain}.txt", "a") as f:
-                        f.write("{:<15} {:<15} {:<15} {:<15} \n".format(url, subdomain, str(response.status_code), "False"))
+                        f.write("{:<15} {:<15} {:<15} {:<15} \n".format(domain, subdomain, str(response.status_code), "False"))
 
         except requests.exceptions.ConnectionError as e:
             continue
