@@ -1,6 +1,5 @@
 import requests
 
-from time import sleep
 
 def Scan(domain):
 
@@ -14,6 +13,7 @@ def Scan(domain):
     for subdomain in subdomains:
         try:
             url = f"https://{subdomain}.{domain}"
+            print(url)
             response = requests.get(url)
 
             if response.status_code != 404:
@@ -21,7 +21,8 @@ def Scan(domain):
                     with open(f"./scans/SUBDOMAINS/{domain}.txt", "a") as f:
                         f.write("{:<15} {:<15} {:<15} {:<15} \n".format(domain, subdomain, str(response.status_code), "True"))
                 else:
-                    pass
+                    with open(f"./scans/SUBDOMAINS/{domain}.txt", "a") as f:
+                        f.write("{:<15} {:<15} {:<15} {:<15} \n".format(domain, subdomain, str(response.status_code), "False"))
 
         except requests.exceptions.ConnectionError as e:
             continue
