@@ -7,7 +7,7 @@ def Dump(domain):
     with open(f'./scans/DNS/{domain}.txt', 'w') as f:
         
         f.write('{:<15} {:<15} \n'.format('Domain', 'MX Records'))
-        f.write('='*45+'\n')
+        f.write('='*45+'\n') 
 
         try:
             mx_records = resolver.query(domain, 'MX')
