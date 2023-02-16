@@ -18,17 +18,9 @@ def Detect(domain):
         pass
 
     re = requests.get(f"https://{domain}/.git/")
-    if re.status_code == 404:
-        pass
-    if re.status_code == 403:
-        pass
-    else:
+    if re.status_code == 200:
         print("[LOTUS] Detected: .git")
 
     rs = requests.get(f"https://{domain}/.env/")
-    if re.status_code == 404:
-        pass
-    if re.status_code == 403:
-        pass
-    else:
+    if rs.status_code == 200:
         print("[LOTUS] Detected: .env")
