@@ -62,7 +62,7 @@ Utilizing state-of-the-art technology and advanced algorithms, this program is c
   
 </div>
 
-<center> <h1 id="Futures" align="center" >How to Use</h1> </center>
+<center> <h1 id="Howto" align="center" >How to Use</h1> </center>
 
 Parameters
 ```
